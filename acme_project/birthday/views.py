@@ -15,7 +15,6 @@ def birthday(request, pk=None):
     if form.is_valid():
         form.save()
         birthday_countdown = calculate_birthday_countdown(
-            # ...и передаём в неё дату из словаря cleaned_data.
             form.cleaned_data['birthday']
         )
         context.update({'birthday_countdown': birthday_countdown})
