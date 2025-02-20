@@ -6,7 +6,15 @@ SECRET_KEY = 'django-insecure-m&$lzdzkutvrbr5vt=jpm)7#g7cken_tk%($ty+w902n7wb#=e
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+EMAIL_FILE_PATH = BASE_DIR / 'sent_emails' 
+LOGIN_REDIRECT_URL = 'pages:homepage' 
+CSRF_FAILURE_VIEW = 'core.views.csrf_failure' 
+LOGIN_URL = 'login' 
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -17,6 +25,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'birthday.apps.BirthdayConfig',
     'pages.apps.PagesConfig',
+    'core.apps.CoreConfig',
     'django_bootstrap5',
 ]
 
